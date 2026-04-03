@@ -1,5 +1,3 @@
-import { motion, AnimatePresence } from 'framer-motion';
-
 export default function ResumeModal() {
   return (
     <dialog id="resume-modal" style={{

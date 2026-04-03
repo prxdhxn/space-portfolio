@@ -1,4 +1,3 @@
-import React from 'react';
 import Background3D from './components/Background3D';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
