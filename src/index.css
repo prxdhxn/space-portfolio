@@ -1,0 +1,148 @@
+:root {
+  --color-bg-deep: #050510;
+  --color-bg-navy: #0a0a2a;
+  --color-bg-purple: #1a0a2a;
+  
+  --color-neon-cyan: #00f3ff;
+  --color-neon-pink: #ff00ea;
+  --color-neon-violet: #8a2be2;
+  
+  --color-text-main: #f0f0ff;
+  --color-text-muted: #a0a0c0;
+
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-bg-deep);
+  color: var(--color-text-main);
+  overflow-x: hidden;
+  padding-top: 70px; /* offset for fixed navbar */
+  /* Customize Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neon-violet) var(--color-bg-deep);
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--color-bg-deep);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-neon-violet);
+  border-radius: 4px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(0, 243, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 243, 255, 0.1);
+}
+
+/* Base Layout Containers */
+.section-container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Buttons */
+.btn-primary {
+  background: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-neon-cyan);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--color-neon-cyan);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  width: 100%;
+}
+
+.btn-primary:hover {
+  color: var(--color-bg-deep);
+  box-shadow: 0 0 15px var(--color-neon-cyan);
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-neon-cyan), var(--color-neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Fix for custom cursor */
+body * {
+  cursor: none !important; /* Hide default cursor */
+}
+
+/* Background Canvas Layer */
+.canvas-container {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none; /* Let clicks pass through to UI */
+}
